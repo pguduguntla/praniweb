@@ -31,7 +31,9 @@ public class PraniServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		// Extract request Parameter if exists.
 		String schoolName = request.getParameter("schoolName");
+		schoolName = (schoolName == null) ? "World" : schoolName;
 		PrintWriter writer = response.getWriter();
 		writer.println(String.format("<h1>I go to %s school!</h1>", schoolName));
 	}
